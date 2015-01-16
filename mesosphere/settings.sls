@@ -5,7 +5,7 @@
 
 {%- set mesos = {} %}
 {%- do mesos.update( {
-  'version' : p.get('version', '0.20.0'),
+  'version' : p.get('version', '0.21.1-1.1.ubuntu1404'),
   'cluster_name' : pc.get('cluster_name', 'MyMesosCluster'),
 
   'ip'          : gc.get('ip', None),
