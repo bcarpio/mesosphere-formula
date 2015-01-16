@@ -1,1 +1,0 @@
-{"virtualbox":{"vagrant-root":{"id":"vagrant-root","guestpath":"/srv/salt","hostpath":"/Users/a706142/Projects/stash/mesosphere-formula/.vagrant-salt","disabled":false},"/vagrant":{"guestpath":"/vagrant","hostpath":"/Users/a706142/Projects/stash/mesosphere-formula","disabled":false}}}
