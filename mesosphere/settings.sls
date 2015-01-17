@@ -5,8 +5,9 @@
 
 {%- set mesos = {} %}
 {%- do mesos.update( {
-  'version' : p.get('version', '0.21.1-1.1.ubuntu1404'),
-  'cluster_name' : pc.get('cluster_name', 'MyMesosCluster'),
+  'version'		: p.get('version', '0.21.1-1.1.ubuntu1404'),
+  'cluster_name'	: pc.get('cluster_name', 'MyMesosCluster'),
+  'marathon_version'	: p.get('marathon_version', '0.7.6-1.0'),
 
   'ip'          : gc.get('ip', None),
   'hostname'    : gc.get('hostname', None),
@@ -17,5 +18,5 @@
 
   'isolation_type'        : gc.get('isolation_type', pc.get('isolation_type', 'posix/cpu,posix/mem')),
   'zookeeper_server_list' : gc.get('zookeeper_server_list', pc.get('zookeeper_server_list', ['localhost:2181'])),
-  'zookeeper_path'        : gc.get('zookeeper_path', pc.get('cluser_name', 'MyMesosCluster'))
+  'zookeeper_path'        : gc.get('zookeeper_path', pc.get('cluser_name', 'MyMesosCluster')),
   }) %}
