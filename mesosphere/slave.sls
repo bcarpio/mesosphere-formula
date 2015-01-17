@@ -6,14 +6,6 @@ include:
 docker:
   pkg.installed
 
-mesos-slave:
-  service.running:
-    - enable: True
-    - watch:
-      - file: mesos-zk-file
-    - require:
-      - pkg: mesos
-
 containerizers:
   file.managed:
     - name: /etc/mesos-slave/containerizers   
@@ -27,6 +19,17 @@ executor_registration_timeout:
   file.managed:
     - name: /etc/mesos-slave/executor_registration_timeout
     - contents: {{ mesosphere.timeout }}
+
+mesos-slave:
+  service.running:
+    - enable: True
+    - watch:
+      - file: mesos-zk-file
+    - require:
+      - pkg: mesos
+      - pkg: docker
+      - file: executor_registration_timeout
+      - file: containerizers
 
 {%- if mesosphere['ip'] %}
 mesos-slave-ip:

@@ -6,7 +6,7 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "ubuntu/trusty64"
-  config.vm.synced_folder "./.vagrant-salt", "/srv/salt", id: "vagrant-root"
+  config.vm.synced_folder "./.vagrant-salt", "/srv/salt"
 
   config.vm.network "forwarded_port", guest: 5050, host: 5050
   config.vm.network "forwarded_port", guest: 5051, host: 5051
@@ -17,6 +17,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provider :virtualbox do |vb|
     # Use VBoxManage to customize the VM. For example to change memory:
     vb.customize ["modifyvm", :id, "--memory", "1024"]
+
   end
 
   if Vagrant.has_plugin?("vagrant-cachier")
@@ -26,9 +27,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Provision VM with this SaltStack formula, in masterless mode.
   config.vm.provision :salt do |salt|
     salt.minion_config = "./.vagrant-salt/minion"
+    salt.grains_config = "./.vagrant-salt/grains"
     salt.run_highstate = true
     salt.install_type = 'stable'
     salt.colorize = true
+    salt.verbose = true
   end
 
   # Run serverspec tests.
