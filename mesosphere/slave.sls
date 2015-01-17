@@ -3,7 +3,7 @@
 include:
   - mesosphere
 
-docker:
+docker.io:
   pkg.installed
 
 containerizers:
