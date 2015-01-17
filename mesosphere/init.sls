@@ -19,7 +19,7 @@ mesos:
 mesos-zk-file:
   file.managed:
     - name: {{ mesosphere.config_dir }}/zk
-    - source: salt://mesosphere/conf/zk
+    - source: salt://mesosphere/files/conf/zk
     - user: root
     - group: root
     - mode: 644

@@ -8,6 +8,7 @@
   'mesos_version'		: p.get('version', '0.21.1-1.1.ubuntu1404'),
   'marathon_version'	    : p.get('marathon_version', '0.7.6-1.0'),
   'cluster_name'	        : pc.get('cluster_name', 'MyMesosCluster'),
+  'timeout'                 : pc.get('timeout', '5mins'),
   'ip'                      : gc.get('ip', None),
   'hostname'                : gc.get('hostname', None),
   'logs_dir'                : gc.get('logs_dir', pc.get('logs_dir', '/var/log/mesos')),

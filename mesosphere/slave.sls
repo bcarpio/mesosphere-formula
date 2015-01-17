@@ -3,6 +3,9 @@
 include:
   - mesosphere
 
+docker:
+  pkg.installed
+
 mesos-slave:
   service.running:
     - enable: True
@@ -11,16 +14,30 @@ mesos-slave:
     - require:
       - pkg: mesos
 
+containerizers:
+  file.managed:
+    - name: /etc/mesos-slave/containerizers   
+    - source: salt://mesosphere/files/mesos-slave/containerizers
+    - user: root
+    - group: root
+    - mode: 644
+    - template: jinja
+
+executor_registration_timeout:
+  file.managed:
+    - name: /etc/mesos-slave/executor_registration_timeout
+    - contents: {{ mesosphere.timeout }}
+
 {%- if mesosphere['ip'] %}
 mesos-slave-ip:
   file.managed:
     - name: {{ mesosphere.config_dir }}/mesos-slave/ip
-    - content_grains: mesosphere:config:ip
+    - contents_grains:  mesosphere:config:ip 
 {%- endif %}
 
 {%- if mesosphere['hostname'] %}
 mesos-master-hostname:
   file.managed:
     - name: {{ mesosphere.config_dir }}/mesos-slave/hostname
-    - content_grains: mesosphere:config:hostname
+    - contents_grains:  mesosphere:config:hostname 
 {%- endif %}
