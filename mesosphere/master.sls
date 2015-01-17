@@ -14,8 +14,10 @@ mesos-master-directories:
       - {{ mesosphere.config_dir }}/mesos-master/
 
 mesos-master:
-  service:
-    - running
+  service.running:
+    - enable: True
+    - watch:
+      - file: mesos-zk-file
     - require:
       - pkg: mesos
 

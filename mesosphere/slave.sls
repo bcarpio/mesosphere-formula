@@ -4,8 +4,10 @@ include:
   - mesosphere
 
 mesos-slave:
-  service:
-    - running
+  service.running:
+    - enable: True
+    - watch:
+      - file: mesos-zk-file
     - require:
       - pkg: mesos
 

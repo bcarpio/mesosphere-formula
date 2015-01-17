@@ -1,3 +1,4 @@
+{%- from 'zookeeper/settings.sls' import zk with context %}
 {%- from 'mesosphere/settings.sls' import mesosphere with context %}
 
 base:
@@ -24,5 +25,5 @@ mesos-zk-file:
     - mode: 644
     - template: jinja
     - context:
-      zookeeper_server_list: {{ mesosphere.zookeeper_server_list }}
+      zookeeper_server_list: {{ zk.connection_string }}
       zookeeper_path: {{ mesosphere.zookeeper_path }}
