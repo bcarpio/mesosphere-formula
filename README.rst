@@ -23,7 +23,7 @@ Adds the mesosphere package repository and installs mesosphere.
 ``mesosphere.master``
 --------------------
 
-Includes `mesosphere` to install mesosphere and runs the `mesos-master` service. A Zookeeper is automatically installed and started as well.
+Includes `mesosphere` to install mesosphere and runs the `mesos-master` service. A Zookeeper is automatically installed and started as well. A Mesosphere install is also added to the master node.
 
 ``mesosphere.slave``
 --------------------
