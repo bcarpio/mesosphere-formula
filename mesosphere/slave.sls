@@ -27,7 +27,7 @@ mesos-slave:
       - file: mesos-zk-file
     - require:
       - pkg: mesos
-      - pkg: docker
+      - pkg: docker.io
       - file: executor_registration_timeout
       - file: containerizers
 
