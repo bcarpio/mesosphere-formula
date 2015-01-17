@@ -1,4 +1,4 @@
-{%- from 'mesosphere/settings.sls' import mesos with context %}
+{%- from 'mesosphere/settings.sls' import mesosphere with context %}
 
 include:
   - mesosphere
@@ -9,9 +9,9 @@ mesos-master-directories:
     - group: root
     - makedirs: True
     - names:
-      - {{ mesos.logs_dir }}
-      - {{ mesos.work_dir }}
-      - {{ mesos.config_dir }}/mesos-master/
+      - {{ mesosphere.logs_dir }}
+      - {{ mesosphere.work_dir }}
+      - {{ mesosphere.config_dir }}/mesos-master/
 
 mesos-master:
   service:
@@ -19,16 +19,16 @@ mesos-master:
     - require:
       - pkg: mesos
 
-{%- if mesos['ip'] %}
+{%- if mesosphere['ip'] %}
 mesos-slave-ip:
   file.managed:
-    - name: {{ mesos.config_dir }}/mesos-master/ip
+    - name: {{ mesosphere.config_dir }}/mesos-master/ip
     - content_grains: mesosphere:config:ip
 {%- endif %}
 
-{%- if mesos['hostname'] %}
+{%- if mesosphere['hostname'] %}
 mesos-slave-hostname:
   file.managed:
-    - name: {{ mesos.config_dir }}/mesos-master/hostname
+    - name: {{ mesosphere.config_dir }}/mesos-master/hostname
     - content_grains: mesosphere:config:hostname
 {%- endif %}

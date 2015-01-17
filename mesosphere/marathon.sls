@@ -1,4 +1,4 @@
-{%- from 'mesosphere/settings.sls' import mesos with context %}
+{%- from 'mesosphere/settings.sls' import mesosphere with context %}
 
 include:
   - mesosphere
@@ -6,7 +6,7 @@ include:
 marathon_package:
   pkg.installed:
     - name: marathon
-    - version: {{ mesos.marathon_version }}
+    - version: {{ mesosphere.marathon_version }}
 
 marathon_service:
   service.running:
