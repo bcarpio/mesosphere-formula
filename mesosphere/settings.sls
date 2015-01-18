@@ -16,5 +16,5 @@
   'config_dir'              : gc.get('config_dir', pc.get('config_dir', '/etc/mesos')),
   'port'                    : gc.get('port', pc.get('port', '5050')),
   'isolation_type'          : gc.get('isolation_type', pc.get('isolation_type', 'posix/cpu,posix/mem')),
-  'zookeeper_path'          : gc.get('zookeeper_path', pc.get('cluser_name', 'MyMesosCluster')),
+  'zookeeper_path'          : gc.get('zookeeper_path', pc.get('cluser_name', 'mesos')),
   }) %}

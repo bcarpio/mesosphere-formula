@@ -3,9 +3,6 @@
 include:
   - mesosphere
 
-docker.io:
-  pkg.installed
-
 containerizers:
   file.managed:
     - name: /etc/mesos-slave/containerizers   
@@ -27,7 +24,6 @@ mesos-slave:
       - file: mesos-zk-file
     - require:
       - pkg: mesos
-      - pkg: docker.io
       - file: executor_registration_timeout
       - file: containerizers
 

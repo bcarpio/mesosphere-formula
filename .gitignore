@@ -1,2 +1,5 @@
 .vagrant
 .vagrant-salt/zookeeper/
+.depends
+.vagrant-salt/bamboo
+.vagrant-salt/zookeeper
