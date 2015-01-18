@@ -1,17 +1,11 @@
 # these are the supported pillars with their defaults
 
 mesosphere:
-  version: '0.20.0'
+  mesos_version: '0.20.0'
+  marathon_version: '0.20.0'
   config:
     cluser_name: 'MyMesosCluster'
-    zookeeper_server_list:
-      - 'zk-01.acme.com:2181'
-      - 'zk-02.acme.com:2181'
-      - 'zk-03.acme.com:2181'
     port: 5050
-
-mine_functions:
-  network.interfaces: []
-  test.ping: []
+    timeout: 5min
 
 # you can override everything in config: locally with grains.
