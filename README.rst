@@ -30,4 +30,10 @@ Includes `mesosphere` to install mesosphere and runs the `mesos-master` service.
 
 Includes `mesosphere` to install mesosphere and runs the `mesos-slave` service.
 
+
+``mesosphere.marathon``
+--------------------
+
+Should be assigned to any 'mesosphere.master' node. 
+
 Tested on Ubuntu 14.04.
