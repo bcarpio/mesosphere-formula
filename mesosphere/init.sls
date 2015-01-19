@@ -1,7 +1,7 @@
 {%- from 'zookeeper/settings.sls' import zk with context %}
 {%- from 'mesosphere/settings.sls' import mesosphere with context %}
 
-base:
+mesos-repo:
   pkgrepo.managed:
     - humanname: Mesosphere Repo
     - name: "deb http://repos.mesosphere.io/{{ grains['osfullname'].lower() }} {{ grains['oscodename'] }} main"
