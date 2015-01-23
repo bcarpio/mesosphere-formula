@@ -7,6 +7,7 @@
 {%- do mesosphere.update( {
   'mesos_version'           : p.get('version', '0.21.1-1.1.ubuntu1404'),
   'marathon_version'        : p.get('marathon_version', '0.7.6-1.0'),
+  'chronos_version'         : p.get('chronos_version', '2.3.1-0.1.20150122202347'),
   'cluster_name'            : pc.get('cluster_name', 'mesos'),
   'timeout'                 : pc.get('timeout', '5mins'),
   'ip'                      : gc.get('ip', None),
