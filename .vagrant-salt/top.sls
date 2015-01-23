@@ -6,5 +6,6 @@ base:
     - mesosphere
     - mesosphere.master
     - mesosphere.marathon
+    - mesosphere.chronos
     - mesosphere.slave
     - bamboo
